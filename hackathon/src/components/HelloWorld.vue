@@ -11,6 +11,34 @@
 <script>
 import OpenAI from "openai";
 const openai = new OpenAI({apiKey: "sk-proj-VGt6T0UjgTiskZhAShK4T3BlbkFJaCnGP3mQN3UL0a5QuLUE", dangerouslyAllowBrowser: true});
+setTimeout(() => {
+  // eslint-disable-next-line
+    var human = new HumanAPI("myWidget"); 
+    human.on("scene.objectsSelected",function(event) {
+    let body_part = "";
+    var selected = [];
+    var deselected = [];
+
+    // Event contains a map of objects that were selected
+    // or deselected by this update.
+    Object.keys(event).forEach(function(objectId) {
+        if (event[objectId]) {
+            selected.push(objectId);
+        } else {
+            deselected.push(objectId);
+        }
+    })
+    if(selected.length == 0) {
+      return;
+    }
+    let split_list = selected[0].split("_");
+    body_part += split_list[4].split("-")[1]
+    for(let i = 5; i < split_list.length -1; i++) {
+        body_part += " " + split_list[i]
+    }
+      this.part_of_body = body_part;
+      console.log(this.part_of_body);
+    });}, 3000);
 export default {
   name: 'HelloWorld',
   props: {
@@ -19,7 +47,8 @@ export default {
   data() {
     return {
       query: "",
-      answer: ""
+      answer: "",
+      part_of_body: ""
     };
   },
   methods: {
