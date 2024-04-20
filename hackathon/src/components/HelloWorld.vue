@@ -4,15 +4,35 @@
         width="100%"
         height="100%">
     </iframe>
+    <input type="text" v-model="query">
+    <button v-on:click="get_solution(query)">Send to Super intelligent definitely a doctor for analasyze</button>
+    <p>{{answer}}</p>
 </template>
-
 <script>
+import OpenAI from "openai";
+const openai = new OpenAI({apiKey: "sk-proj-VGt6T0UjgTiskZhAShK4T3BlbkFJaCnGP3mQN3UL0a5QuLUE", dangerouslyAllowBrowser: true});
 export default {
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+  data() {
+    return {
+      query: "",
+      answer: ""
+    };
+  },
+  methods: {
+  // Example method
+  async get_solution(query) {
+    let result = await openai.chat.completions.create({
+      messages: [{ role: "system", content: query}],
+      model: "gpt-3.5-turbo",
+    });
+    this.answer = result.choices[0].message.content
   }
 }
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
