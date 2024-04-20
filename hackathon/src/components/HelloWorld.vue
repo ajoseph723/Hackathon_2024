@@ -55,7 +55,7 @@ export default {
   // Example method
   async get_solution(query) {
     let result = await openai.chat.completions.create({
-      messages: [{ role: "system", content: "answer this question under the pretense that you are a doctor of physical therapy and are giving adivce: " + query + "please give a physical therapy routine for this."}],
+      messages: [{ role: "system", content: "answer this question under the pretense that you are a doctor of physical therapy and are giving adivce: " + query + "please only give me a list of physical therapy exercises for this."}],
       model: "gpt-3.5-turbo",
     });
     this.answer = result.choices[0].message.content
