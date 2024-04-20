@@ -9,36 +9,9 @@
     <p>{{answer}}</p>
 </template>
 <script>
+var bodyPart = "";
 import OpenAI from "openai";
 const openai = new OpenAI({apiKey: "sk-proj-VGt6T0UjgTiskZhAShK4T3BlbkFJaCnGP3mQN3UL0a5QuLUE", dangerouslyAllowBrowser: true});
-setTimeout(() => {
-  // eslint-disable-next-line
-    var human = new HumanAPI("myWidget"); 
-    human.on("scene.objectsSelected",function(event) {
-    let body_part = "";
-    var selected = [];
-    var deselected = [];
-
-    // Event contains a map of objects that were selected
-    // or deselected by this update.
-    Object.keys(event).forEach(function(objectId) {
-        if (event[objectId]) {
-            selected.push(objectId);
-        } else {
-            deselected.push(objectId);
-        }
-    })
-    if(selected.length == 0) {
-      return;
-    }
-    let split_list = selected[0].split("_");
-    body_part += split_list[4].split("-")[1]
-    for(let i = 5; i < split_list.length -1; i++) {
-        body_part += " " + split_list[i]
-    }
-      this.part_of_body = body_part;
-      console.log(this.part_of_body);
-    });}, 3000);
 export default {
   name: 'HelloWorld',
   props: {
@@ -48,20 +21,51 @@ export default {
     return {
       query: "",
       answer: "",
-      part_of_body: ""
+      part_of_body: "",
     };
   },
   methods: {
-  // Example method
-  async get_solution(query) {
-    let result = await openai.chat.completions.create({
-      messages: [{ role: "system", content: "answer this question under the pretense that you are a doctor of physical therapy and are giving adivce: " + query + "please give a physical therapy routine for this."}],
-      model: "gpt-3.5-turbo",
-    });
-    this.answer = result.choices[0].message.content
+    // Example method
+    async get_solution(query) {
+      console.log(this.part_of_body);
+      let result = await openai.chat.completions.create({
+        messages: [{ role: "system", content: "answer this question under the pretense that you are a doctor of physical therapy and are giving adivce: my "+ bodyPart + query + "please give a physical therapy routine for this."}],
+        model: "gpt-3.5-turbo",
+      });
+      
+      this.answer = result.choices[0].message.content
+    },
   }
-}
 };
+setTimeout(() => {
+  
+  // eslint-disable-next-line
+  var human = new HumanAPI("myWidget"); 
+  human.on("scene.objectsSelected",function(event) {
+    let body_part = "";
+    var selected = [];
+    var deselected = [];
+    
+    // Event contains a map of objects that were selected
+    // or deselected by this update.
+    Object.keys(event).forEach(function(objectId) {
+      if (event[objectId]) {
+        selected.push(objectId);
+      } else {
+        deselected.push(objectId);
+      }
+    })
+    if(selected.length == 0) {
+      return;
+    }
+    let split_list = selected[0].split("_");
+    body_part += split_list[4].split("-")[1]
+    for(let i = 5; i < split_list.length -1; i++) {
+      body_part += " " + split_list[i]
+    }
+    bodyPart = body_part;
+  });
+}, 1000);
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
