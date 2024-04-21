@@ -9,11 +9,16 @@
     <p>{{answer}}</p>
 </template>
 <script>
+import router from '../routes'
 var bodyPart = "";
 import OpenAI from "openai";
+<<<<<<< HEAD:hackathon/src/components/HelloWorld.vue
 const openai = new OpenAI({apiKey: "sk-proj-ZZFzOpMcKBMb8wIzXIvUT3BlbkFJ9TdHX3lYVXYZ7wRymv7v", dangerouslyAllowBrowser: true});
+=======
+const openai = new OpenAI({ apiKey: process.env.VUE_APP_API_KEY, dangerouslyAllowBrowser: true});
+>>>>>>> 1ce52303e8754d63c1c8a8ca970cedbe2abff4d9:hackathon/src/components/HomePage.vue
 export default {
-  name: 'HelloWorld',
+  name: 'HomePage',
   props: {
     msg: String
   },
@@ -29,43 +34,52 @@ export default {
     async get_solution(query) {
       console.log(this.part_of_body);
       let result = await openai.chat.completions.create({
-        messages: [{ role: "system", content: "answer this question under the pretense that you are a doctor of physical therapy and are giving adivce: my "+ bodyPart + query + "please give a physical therapy routine for this."}],
+        messages: [{ role: "system", content: "answer this question under the pretense that you are a doctor of physical therapy and are giving adivce: my " + bodyPart + query + "please give a physical therapy routine for this." }],
         model: "gpt-3.5-turbo",
       });
-      
       this.answer = result.choices[0].message.content
+      console.log("we're schmoovin")
+      router.push({
+        path: '/response',
+          query: {
+          message: this.answer
+        }})
     },
+    
   }
 };
 setTimeout(() => {
-  
-  // eslint-disable-next-line
-  var human = new HumanAPI("myWidget"); 
-  human.on("scene.objectsSelected",function(event) {
+  if(document.getElementById("myWidget") == null){
+    return;
+  }
+  else{
+    // eslint-disable-next-line
+  var human = new HumanAPI("myWidget");
+  human.on("scene.objectsSelected", function (event) {
     let body_part = "";
     var selected = [];
     var deselected = [];
-    
+
     // Event contains a map of objects that were selected
     // or deselected by this update.
-    Object.keys(event).forEach(function(objectId) {
+    Object.keys(event).forEach(function (objectId) {
       if (event[objectId]) {
         selected.push(objectId);
       } else {
         deselected.push(objectId);
       }
     })
-    if(selected.length == 0) {
+    if (selected.length == 0) {
       return;
     }
     let split_list = selected[0].split("_");
     body_part += split_list[4].split("-")[1]
-    for(let i = 5; i < split_list.length -1; i++) {
+    for (let i = 5; i < split_list.length - 1; i++) {
       body_part += " " + split_list[i]
     }
     bodyPart = body_part;
   });
-}, 1000);
+}}, 1000);
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -74,14 +88,17 @@ setTimeout(() => {
 h3 {
   margin: 40px 0 0;
 }
+
 ul {
   list-style-type: none;
   padding: 0;
 }
+
 li {
   display: inline-block;
   margin: 0 10px;
 }
+
 a {
   color: #42b983;
 }
