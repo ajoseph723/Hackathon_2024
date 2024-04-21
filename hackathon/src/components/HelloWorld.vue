@@ -1,10 +1,13 @@
 <template>
+
   <iframe id="myWidget"
         src="https://human.biodigital.com/widget/?be=2PcB&amp;background.colors=0,0,0,1,0,0,0,1&amp;initial.hand-hint=true&amp;ui-fullscreen=true&amp;ui-center=false&amp;ui-dissect=true&amp;ui-zoom=true&amp;ui-help=true&amp;ui-tools-display=primary&amp;ui-info=true&amp;uaid=3YfOR"
         width="100%"
         height="80%">
     </iframe>
-    <input type="text" v-model="query">
+    <div>
+      <input v-on:click="delete_text(query)" type="text" v-model="query" v-bind:id="inputId">
+    </div>
     <button v-on:click="get_solution(query)">Get Therapy</button>
     <p>{{answer}}</p>
 </template>
@@ -19,7 +22,7 @@ export default {
   },
   data() {
     return {
-      query: "",
+      query: 'Describe your issue that you have with the selected area',
       answer: "",
       part_of_body: "",
     };
@@ -35,8 +38,15 @@ export default {
       
       this.answer = result.choices[0].message.content
     },
+
+    delete_text() {
+      this.query = "";
+    },
   }
 };
+
+
+
 setTimeout(() => {
   
   // eslint-disable-next-line
@@ -70,6 +80,12 @@ setTimeout(() => {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
+input {
+  border: 1px solid #ccc;
+  padding: 5px;
+  width: 50%
+}
 
 h3 {
   margin: 40px 0 0;
