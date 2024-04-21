@@ -36,11 +36,11 @@ export default {
         model: "gpt-3.5-turbo",
       });
       this.answer = result.choices[0].message.content
-      console.log("we're schmoovin")
       router.push({
         path: '/response',
           query: {
-          message: this.answer
+          message: this.answer,
+          passedBodyPart: bodyPart
         }})
     },
 
