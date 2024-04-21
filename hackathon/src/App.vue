@@ -6,7 +6,7 @@
   <router-view/>
 </template>
 
-<!-- <script>
+<script>
 
 export default {
   name: 'App',
@@ -33,4 +33,4 @@ body {
   margin-top: 60px;
   height: 100%
 }
-</style>
+</style> 
