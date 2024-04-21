@@ -4,7 +4,9 @@
         width="100%"
         height="80%">
     </iframe>
-    <input type="text"  v-model="query">
+    <div>
+      <input v-on:click="delete_text(query)" type="text" v-model="query" v-bind:id="inputId">
+    </div>
     <button v-on:click="get_solution(query)">Get Therapy</button>
     <p>{{answer}}</p>
 </template>
