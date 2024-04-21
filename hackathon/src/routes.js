@@ -5,7 +5,7 @@ import Response from './components/ResponsePage.vue';
 
 const routes = [
   { path: '/', name:"Home", component: HomePage },
-  { path: '/Response', name:"Response", component: Response }
+  { path: '/response', name:"response", component: Response }
 ];
 
 
