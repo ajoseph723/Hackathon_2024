@@ -43,7 +43,11 @@ export default {
           message: this.answer
         }})
     },
-    
+
+    delete_text() {
+      this.query = "";
+    },
+
   }
 };
 setTimeout(() => {
@@ -82,6 +86,12 @@ setTimeout(() => {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
+input {
+  border: 1px solid #ccc;
+  padding: 5px;
+  width: 50%
+}
 
 h3 {
   margin: 40px 0 0;
