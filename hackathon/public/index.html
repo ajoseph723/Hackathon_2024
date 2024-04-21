@@ -52,8 +52,37 @@
       border: 1px solid #282828;
       text-align: center;
       z-index: 10000;
-  }
+    }
     .popupButton{
+      background-color: #282828;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .instructPop {
+      position: absolute; 
+      top: 50%; 
+      display: flex;
+      flex-direction: column;
+      left: 50%; 
+      transform: translate(-50%, -50%); 
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px solid #282828;
+      text-align: center;
+      z-index: 10000;
+    }
+
+    .popup2Button{
       background-color: #282828;
       color: white;
       border: none;
@@ -100,11 +129,48 @@
   </div>
     <button class="popupButton" id="popupButton">I Acknowledge</button>
   </div>
+
+  <div class="instructPop">
+    <div>
+      <h2 style="
+        flex-grow: 1;
+        text-align: center;
+        font-size: 30px;
+        font-family: system-ui, sans-serif;
+        font-weight: normal;
+        padding: 7px;
+        display: inline-block;
+        height: 30px;
+        ">
+        <b>Instruction</b>
+      </h2> 
+    </div>
+    <div style="
+        text-align: center;
+        font-size: 15px;
+        line-height: 1.5;
+        flex-grow: 3;
+        font-family: system-ui, sans-serif;
+        font-weight: normal;">
+        <p>
+          Pain Point Precision works to provide free and accessible physical therapy regiments for any given muscle. Start by locating the area of discomfort
+          and pinpoint the respective muscle on the 3D-model. Select said muscle. Then supply a description of your uneasyness into the text bar below.
+        </p>
+  </div>
+    <button class="popup2Button" id="popup2Button">Next</button>
+  </div>
   <script>
     let closebut = document.getElementById('popupButton');
     let innerPop = document.querySelector('.innerPop');
     closebut.addEventListener("click", () => { 
       innerPop.style.display = "none"; 
+    });
+
+
+    let inbut = document.getElementById('popup2Button');
+    let instructPop = document.querySelector('.instructPop');
+    inbut.addEventListener("click", () => {
+      instructPop.style.display = "none";
     });
   </script>
 </body>
