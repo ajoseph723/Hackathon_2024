@@ -93,6 +93,27 @@ input {
   width: 50%
 }
 
+button {
+  background-image: linear-gradient(to right, #282828, grey);
+  background-size: 900%;
+  background-position: -1px;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: 0.8s;
+}
+
+button:hover{
+  background-position: right;
+}
+
 h3 {
   margin: 40px 0 0;
 }
