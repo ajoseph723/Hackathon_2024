@@ -11,7 +11,7 @@
 <script>
 var bodyPart = "";
 import OpenAI from "openai";
-const openai = new OpenAI({apiKey: "sk-proj-VGt6T0UjgTiskZhAShK4T3BlbkFJaCnGP3mQN3UL0a5QuLUE", dangerouslyAllowBrowser: true});
+const openai = new OpenAI({apiKey: "sk-proj-uzwD8vDkS3KqpPTCTiDrT3BlbkFJH4ZNdi1HOXbNS3AEQeUr", dangerouslyAllowBrowser: true});
 export default {
   name: 'HelloWorld',
   props: {
