@@ -1,0 +1,100 @@
+<!doctype html><html lang=""><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="icon" href="/Hackathon_2024/favicon.ico"/><link rel="stylesheet" href="style.css"/><script defer="defer" src="/Hackathon_2024/js/chunk-vendors.d56a777d.js"></script><script defer="defer" src="/Hackathon_2024/js/app.9c12e1bd.js"></script><link href="/Hackathon_2024/css/app.6c2fa2ee.css" rel="stylesheet"></head><title>Pain Point Precision</title><h1 style="text-align: center; 
+      color:rgb(44, 44, 44); 
+      font-size: 25px;
+      font-family: 'Courier New';
+      background-color: whitesmoke;
+      border-radius: 0 0 1px 1px;
+      padding: 0;
+      width:100%;
+      margin: 0;">Pain Point Precision</h1><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/Hackathon_2024/favicon.ico"><link rel="stylesheet" href="style.css"><title>hackathon</title><script src="https://developer.biodigital.com/builds/api/human-api-3.0.0.min.js"></script></head><body><noscript><strong>We're sorry but hackathon doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id="app"></div><style>.innerPop {
+      position: absolute; 
+      top: 50%; 
+      display: flex;
+      flex-direction: column;
+      left: 50%; 
+      transform: translate(-50%, -50%); 
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px solid #282828;
+      text-align: center;
+      z-index: 10000;
+    }
+    .popupButton{
+      background-color: #282828;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .instructPop {
+      position: absolute; 
+      top: 50%; 
+      display: flex;
+      flex-direction: column;
+      left: 50%; 
+      transform: translate(-50%, -50%); 
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px solid #282828;
+      text-align: center;
+      z-index: 10000;
+    }
+
+    .popup2Button{
+      background-color: #282828;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+  body{margin:0;}</style><div class="innerPop"><div><h2 style="flex-grow: 1;
+        text-align: center;
+        font-size: 30px;
+        font-family: system-ui, sans-serif;
+        font-weight: normal;
+        padding: 7px;
+        display: inline-block;
+        height: 30px;"><b>Disclaimer</b></h2></div><div style="text-align: center;
+        font-size: 12px;
+        line-height: 1.5;
+        flex-grow: 3;
+        font-family: system-ui, sans-serif;
+        font-weight: normal;"><p>The medical service provided by Pain Point Precision is intended for informational purposes only and should not be considered a substitute for professional medical advice, diagnosis, or treatment. It is crucial to consult with a qualified healthcare professional or physician regarding any medical concerns, symptoms, or conditions you may have.</p></div><button class="popupButton" id="popupButton">I Acknowledge</button></div><div class="instructPop"><div><h2 style="flex-grow: 1;
+        text-align: center;
+        font-size: 30px;
+        font-family: system-ui, sans-serif;
+        font-weight: normal;
+        padding: 7px;
+        display: inline-block;
+        height: 30px;"><b>Instruction</b></h2></div><div style="text-align: center;
+        font-size: 15px;
+        line-height: 1.5;
+        flex-grow: 3;
+        font-family: system-ui, sans-serif;
+        font-weight: normal;"><p>Pain Point Precision works to provide free and accessible physical therapy regiments for any given muscle. Start by locating the area of discomfort and pinpoint the respective muscle on the 3D-model. Select said muscle. Then supply a description of your uneasyness into the text bar below.</p></div><button class="popup2Button" id="popup2Button">Next</button></div><script>let closebut = document.getElementById('popupButton');
+    let innerPop = document.querySelector('.innerPop');
+    closebut.addEventListener("click", () => { 
+      innerPop.style.display = "none"; 
+    });
+
+
+    let inbut = document.getElementById('popup2Button');
+    let instructPop = document.querySelector('.instructPop');
+    inbut.addEventListener("click", () => {
+      instructPop.style.display = "none";
+    });</script></body></html>
