@@ -5,7 +5,7 @@
         height="80%">
     </iframe>
     <input type="text" v-model="query">
-    <button v-on:click="get_solution(query)">Send to Super intelligent definitely a doctor for analasyze</button>
+    <button v-on:click="get_solution(query)">Get Therapy</button>
     <p>{{answer}}</p>
 </template>
 <script>
