@@ -20,7 +20,7 @@ export default {
 
 
 body {
-  height: 800px;
+  height: 100%;
   background-color: #000000;  
   }
 

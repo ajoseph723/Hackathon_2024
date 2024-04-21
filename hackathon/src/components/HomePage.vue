@@ -2,7 +2,7 @@
   <iframe id="myWidget"
         src="https://human.biodigital.com/widget/?be=2PcB&amp;background.colors=0,0,0,1,0,0,0,1&amp;initial.hand-hint=true&amp;ui-fullscreen=true&amp;ui-center=false&amp;ui-dissect=true&amp;ui-zoom=true&amp;ui-help=true&amp;ui-tools-display=primary&amp;ui-info=true&amp;uaid=3YfOR"
         width="100%"
-        height="80%">
+        height="70%">
     </iframe>
     <div>
       <input v-on:click="delete_text(query)" type="text" v-model="query" v-bind:id="inputId">
