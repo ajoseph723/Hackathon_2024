@@ -6,31 +6,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
     <link rel="stylesheet" href="style.css" />
-    <style>
-      .innerPop {
-      background-color: white;
-      padding: 20px;
-      border-radius: 5px;
-      border: 5px;
-      text-align: center;
-    }
-    </style>
   </head>
-  <body>
-    <p id="disclaimerp"></p>
-    <div class="innerPop">
-      <h2>***DISCLAIMER***</h2> 
-      <h1>algoih</h1>
-      <button id="popupButton">I Acknowledge</button>
-    </div>
-    <script>
-      let closebut = document.getElementById('popupButton');
-      let innerPop = document.querySelector('.innerPop');
-      closebut.addEventListener("click", () => { 
-        innerPop.style.display = "none"; 
-      });
-    </script>
-  </body>
   <title> Charity Therapy </title>
   <h1 style="
       text-align: center; 
@@ -65,4 +41,43 @@
     <div id="app"></div>
     <!-- built files will be auto injected -->
   </body>
+  <body>
+  <style>
+    .innerPop {
+    background-color: palegoldenrod;
+    padding: 20px;
+    border-radius: 5px;
+    border: 5px;
+    text-align: center;
+  }
+  </style>
+  <p id="disclaimerp"></p>
+  <div class="innerPop">
+    <h2 style="
+        text-align: center;
+        font-size: 30px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        border: 10px solid black;
+        border-radius: 5;
+        padding: solid;">
+        <b>***DISCLAIMER***</b>
+    </h2> 
+    <h1 style="
+        text-align: center;
+        font-size: 22px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
+        The medical service provided by Pain Point Precision is intended for informational purposes only and should not be considered a substitute
+        for professional medical advice, diagnosis, or treatment. It is crucial to consult with a qualified healthcare professional or physician regarding
+        any medical concerns, symptoms, or conditions you may have.
+    </h1>
+    <button id="popupButton">I Acknowledge</button>
+  </div>
+  <script>
+    let closebut = document.getElementById('popupButton');
+    let innerPop = document.querySelector('.innerPop');
+    closebut.addEventListener("click", () => { 
+      innerPop.style.display = "none"; 
+    });
+  </script>
+</body>
 </html>
