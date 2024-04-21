@@ -13,7 +13,7 @@
 import router from '../routes'
 var bodyPart = "";
 import OpenAI from "openai";
-const openai = new OpenAI({ apiKey: "sk-proj-uzwD8vDkS3KqpPTCTiDrT3BlbkFJH4ZNdi1HOXbNS3AEQeUr", dangerouslyAllowBrowser: true });
+const openai = new OpenAI({ apiKey: process.env.VUE_APP_API_KEY, dangerouslyAllowBrowser: true});
 export default {
   name: 'HomePage',
   props: {
@@ -39,7 +39,7 @@ export default {
       router.push({
         path: '/response',
           query: {
-          message: "this.answer"
+          message: this.answer
         }})
     },
     
