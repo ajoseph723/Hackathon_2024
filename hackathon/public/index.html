@@ -6,6 +6,51 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
     <link rel="stylesheet" href="style.css" />
+    <style>
+      .innerPop {
+      background-color: white;
+      padding: 20px;
+      border-radius: 5px;
+      border: 5px;
+      text-align: center;
+    }
+    </style>
+  </head>
+  <body>
+    <p id="disclaimerp"></p>
+    <div class="innerPop">
+      <h2>***DISCLAIMER***</h2> 
+      <h1>algoih</h1>
+      <button id="popupButton">I Acknowledge</button>
+    </div>
+    <script>
+      let closebut = document.getElementById('popupButton');
+      let innerPop = document.querySelector('.innerPop');
+      closebut.addEventListener("click", () => { 
+        innerPop.style.display = "none"; 
+      });
+    </script>
+  </body>
+  <title> Charity Therapy </title>
+  <h1 style="
+      text-align: center; 
+      color:floralwhite; 
+      font-size: 55px;
+      font-family: 'Courier New';
+      background-color: rgb(233, 111, 111);
+      padding: 10px;
+      border: 3px solid rgb(145, 120, 120);
+      border-style: solid;
+      border-left-width: 600px;
+      border-right-width: 600px;">
+    Charity Therapy
+  </h1>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <link rel="stylesheet" href="style.css">
     <title><%= htmlWebpackPlugin.options.title %></title>
     <script src="https://developer.biodigital.com/builds/api/human-api-3.0.0.min.js"></script>
   </head>
