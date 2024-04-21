@@ -12,11 +12,7 @@
 import router from '../routes'
 var bodyPart = "";
 import OpenAI from "openai";
-<<<<<<< HEAD:hackathon/src/components/HelloWorld.vue
-const openai = new OpenAI({apiKey: "sk-proj-ZZFzOpMcKBMb8wIzXIvUT3BlbkFJ9TdHX3lYVXYZ7wRymv7v", dangerouslyAllowBrowser: true});
-=======
 const openai = new OpenAI({ apiKey: process.env.VUE_APP_API_KEY, dangerouslyAllowBrowser: true});
->>>>>>> 1ce52303e8754d63c1c8a8ca970cedbe2abff4d9:hackathon/src/components/HomePage.vue
 export default {
   name: 'HomePage',
   props: {
