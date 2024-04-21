@@ -32,7 +32,7 @@ export default {
         setTimeout(()=> {
           console.log(this.embedUrl[number])
           return this.embedUrl[number]
-        }, 10000)
+        }, 5000)
       }
     ,async get_solution(bodyPart) {
       console.log("Hello");
@@ -70,9 +70,10 @@ export default {
       // Define your search query
       const searchTerms = result;
       searchTerms.forEach((searchTerm) => {
-        searchTerm += " tutorial"
+
         console.log('This is the search term' + searchTerm);
-        const apiUrl = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&order=viewCount&q=${encodeURIComponent(searchTerm)}&key=AIzaSyDC7Tjb3BX_8FVbc9xlH8IC4ECxISKUA_E`;
+        searchTerm += " beginner tutorial";
+        const apiUrl = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&order=viewCount&q=${encodeURIComponent(searchTerm)}&key=AIzaSyBlNEcA0VaDJKRfAoyGRMxToCJjKEmf7HM`;
 
         
         // Construct the API request URL with the search query
@@ -87,22 +88,15 @@ export default {
           
           if (data.items && data.items.length > 0) {
             // Filter videos that contain the search term in their description
-            const filteredVideos = data.items.filter((video) => {
-              const description = video.snippet.description.toLowerCase();
-              return description.includes(searchTerm.toLowerCase());
-            });
-            
-            if (filteredVideos.length > 0) {
+
+              if (data.items.length > 0) {
               // Retrieve video ID and title from the first filtered video
-              const videoId = filteredVideos[0].id.videoId;
-              const videoTitle = filteredVideos[0].snippet.title;
+              const videoId = data.items[0].id.videoId;
+              const videoTitle = data.items[0].snippet.title;
               console.log("Video Title:", videoTitle);
               
               // Construct the embed URL using the retrieved video ID
-              console.log("kill me i'm tired")
-              this.embedUrl.push(`https://www.youtube.com/embed/${videoId}`);
-              console.log("Embed URL:", this.embedUrl);
-              
+              this.embedUrl.push(`https://www.youtube.com/embed/${videoId}`);              
               // Now you can process or display the filtered video as needed
             } else {
               console.error("No videos found matching the search term.");
