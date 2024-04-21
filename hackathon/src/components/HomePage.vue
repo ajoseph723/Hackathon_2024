@@ -22,7 +22,7 @@ export default {
   },
   data() {
     return {
-      query: "",
+      query: "Describe your issue that you have with the selected area",
       answer: "",
       part_of_body: "",
     };
